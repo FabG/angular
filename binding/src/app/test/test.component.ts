@@ -6,11 +6,9 @@ import { Component, OnInit } from '@angular/core';
     <h2>
       Welcome {{name}}
     </h2>
-    <h2 [style.color]="'orange'">Style Binding</h2>
-    <h2 [style.color]="hasError ? 'red' : 'green'">Conditional Style Binding</h2>
-    <h2 [style.color]="highlightColor">Style Binding 2</h2>
-
-    <h2 [ngStyle]="titleStyles">Style Binding 3</h2>
+    <button (click)="onClick($event)">Greet</button>
+    <button (click)="greeting='Welcome Fab'">Greet</button>
+    {{greeting}}
 
   `,
   styles: []
@@ -18,29 +16,15 @@ import { Component, OnInit } from '@angular/core';
 export class TestComponent implements OnInit {
 
   public name = "Fabrice";
-  public successClass = "text-success";
-  public hasError = true;
-  public isSpecial = true;
-  public highlightColor = "orange";
-  public titleStyles = {
-    color: "blue",
-    fontStyle: "italic"
-  }
-
-  public messageClasses = {
-    "text-success": !this.hasError,
-    "text-danger": this.hasError,
-    "text-special": this.isSpecial
-  }
-
-
+  public greeting = "";
   constructor() { }
 
   ngOnInit() {
   }
 
-  greetUser() {
-    return "Hello " + this.name;
+  onClick(event) {
+    console.log(event)
+    this.greeting = "Welcome to Codevolution";
   }
 
 }
