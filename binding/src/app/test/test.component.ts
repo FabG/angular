@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
     <h2>
       Welcome {{name}}
     </h2>
-    <button (click)="onClick($event)">Greet</button>
-    <button (click)="greeting='Welcome Fab'">Greet</button>
-    {{greeting}}
-
+    <input #myInput type="text">
+    <button (click)="logMessage(myInput.value)">Log</button>
   `,
   styles: []
 })
@@ -25,6 +23,10 @@ export class TestComponent implements OnInit {
   onClick(event) {
     console.log(event)
     this.greeting = "Welcome to Codevolution";
+  }
+
+  logMessage(value) {
+    console.log(value)
   }
 
 }
